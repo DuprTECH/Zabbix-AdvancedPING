@@ -110,4 +110,4 @@ Thanks to [KLESYS](https://github.com/KLESYS) for improvements to the documentat
 
 ## License
 
-[GPL-3.0](LICENSE.txt)
+[MIT](LICENSE)
