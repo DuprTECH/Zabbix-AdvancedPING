@@ -22,7 +22,7 @@ zabbix_export:
           name: 'Advanced ping sum results'
           type: EXTERNAL
           key: 'Advanced_ping.sh["{HOST.IP}","{$ADV_FPING_POOL_COUNT}"]'
-          history: 1d
+          history: 31d
           value_type: TEXT
           timeout: 30s
           description: 'Raw fping summary, for example "10.0.0.1 : xmt/rcv/%loss = 10/10/0%, min/avg/max = 1.88/12.49/45.03". All other items are taken from this one.'
@@ -215,7 +215,7 @@ zabbix_export:
                       value: '1'
                     - type: STRING
                       name: time_period.from
-                      value: now-1d
+                      value: now-31d
                     - type: STRING
                       name: time_period.to
                       value: now
