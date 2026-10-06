@@ -172,6 +172,53 @@ zabbix_export:
         - macro: '{$ADV_ICMP_RESPONSE_TIME_WARN}'
           value: '200'
           description: 'Maximum tolerated average response time (ms)'
+      dashboards:
+        - uuid: 98c3fb93930549a4918599189732c54e
+          name: 'Advanced ICMP PING'
+          pages:
+            - widgets:
+                - type: graph
+                  width: '72'
+                  height: '7'
+                  fields:
+                    - type: GRAPH
+                      name: graphid
+                      value:
+                        host: 'Module advanced ICMP Ping'
+                        name: 'ICMP Advanced Ping, min/max (yellow), loss % (red, left Y-axis)'
+                    - type: STRING
+                      name: reference
+                      value: AAAML
+                - type: itemhistory
+                  'y': '7'
+                  width: '72'
+                  fields:
+                    - type: ITEM
+                      name: columns.0.itemid
+                      value:
+                        host: 'Module advanced ICMP Ping'
+                        key: 'Advanced_ping.sh["{HOST.IP}","{$ADV_FPING_POOL_COUNT}"]'
+                    - type: INTEGER
+                      name: columns.0.monospace_font
+                      value: '1'
+                    - type: STRING
+                      name: columns.0.name
+                      value: 'Advanced ping sum results'
+                    - type: STRING
+                      name: reference
+                      value: AABLY
+                    - type: INTEGER
+                      name: show_lines
+                      value: '5'
+                    - type: INTEGER
+                      name: show_timestamp
+                      value: '1'
+                    - type: STRING
+                      name: time_period.from
+                      value: now-1d
+                    - type: STRING
+                      name: time_period.to
+                      value: now
   triggers:
     - uuid: c228dbc250e44897a1f72fdec0ccc8b5
       expression: 'avg(/Module advanced ICMP Ping/advanced.ping.max,5m)/avg(/Module advanced ICMP Ping/advanced.ping.min,5m)>{$ADV_ICMP_MAX_TIME_MULTIPLE}'

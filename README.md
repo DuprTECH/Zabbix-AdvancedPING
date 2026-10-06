@@ -48,6 +48,8 @@ The warnings depend on *Unavailable by ICMP ping*, so when the host is down you 
 
 **Graph**: `ICMP Advanced Ping, min/max (yellow), loss % (red, left Y-axis)`
 
+**Dashboard**: `Advanced ICMP PING` (template dashboard, available on every linked host): the graph plus the last raw fping results
+
 ## Requirements
 
 - Zabbix server / proxy **7.4** or newer (for Zabbix 5.0 use the file in `legacy/`)
@@ -94,7 +96,7 @@ The warnings depend on *Unavailable by ICMP ping*, so when the host is down you 
   - The loss trigger uses `{$ADV_ICMP_LOSS_WARN}` (it was hard-coded to 10 %).
   - Min / avg / max items no longer become *Not supported* when the host is down.
   - The item timeout is now set on the item itself.
-  - The screen was removed (screens don't exist in Zabbix 7.x). The graph is still in the template.
+  - The screen was removed (screens don't exist in Zabbix 7.x). It is replaced by the template dashboard *Advanced ICMP PING*.
 
 ## Custom work & support
 
